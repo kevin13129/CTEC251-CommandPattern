@@ -1,16 +1,20 @@
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
         TextEditor editor = new TextEditor();
         EditorApp app = new EditorApp();
 
-        Command insert = new InsertCommand(editor, "Hello World", 0);
-        app.executeCommand(insert);
+        Command header = new InsertCommand(editor, "HEADER", 0);
+        Command newline = new InsertCommand(editor, "\n", 6);
+        Command footer = new InsertCommand(editor, "FOOTER", 7);
 
-        System.out.println(editor.getText());
+        MacroCommand template = new MacroCommand(
+                List.of(header, newline, footer)
+        );
 
-        Command delete = new DeleteCommand(editor, 5, 11);
-        app.executeCommand(delete);
+        app.executeCommand(template);
 
         System.out.println(editor.getText());
 

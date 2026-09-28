@@ -1,2 +1,2 @@
 # Journal
-InsertCommand already knows what text it added, so undo can remove that same text. DeleteCommand has to save the deleted text before removing it, because once it is deleted the program would not know what to restore.
+MacroCommand demonstrates the Composite Pattern because it contains multiple Command objects but still acts like one Command. EditorApp can execute or undo the whole group without knowing how many commands are inside it.
