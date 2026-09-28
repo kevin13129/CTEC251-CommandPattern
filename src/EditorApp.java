@@ -1,15 +1,18 @@
+import java.util.Stack;
+
 public class EditorApp {
 
-    private Command lastCommand;
+    private Stack<Command> history = new Stack<>();
 
     public void executeCommand(Command command) {
         command.execute();
-        lastCommand = command;
+        history.push(command);
     }
 
     public void undo() {
-        if (lastCommand != null) {
-            lastCommand.undo();
+        if (!history.isEmpty()) {
+            Command command = history.pop();
+            command.undo();
         }
     }
 }

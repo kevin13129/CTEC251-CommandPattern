@@ -1,2 +1,2 @@
 # Journal
-The Command object handles its own undo logic, so EditorApp does not need to know how to reverse every action. EditorApp only calls undo on the last command, which keeps it simpler.
+A Stack works well for undo because the last command added is the first one removed. This matches how undo normally works. A Queue would remove the oldest command first, which would undo actions in the wrong order.
