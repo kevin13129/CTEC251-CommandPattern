@@ -1,2 +1,2 @@
 # Journal
-Write your Journal questions and notes here.
+The EditorApp is decoupled because it only needs to work with a Command. It does not need to know how the TextEditor inserts the text. If EditorApp called insertText directly, it would become more dependent on the TextEditor and harder to add other commands later.
