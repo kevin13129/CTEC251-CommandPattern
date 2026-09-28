@@ -4,23 +4,18 @@ public class Main {
         TextEditor editor = new TextEditor();
         EditorApp app = new EditorApp();
 
-        Command one = new InsertCommand(editor, "Hello", 0);
-        Command two = new InsertCommand(editor, " World", 5);
-        Command three = new InsertCommand(editor, "!", 11);
+        Command insert = new InsertCommand(editor, "Hello World", 0);
+        app.executeCommand(insert);
 
-        app.executeCommand(one);
-        app.executeCommand(two);
-        app.executeCommand(three);
+        System.out.println(editor.getText());
+
+        Command delete = new DeleteCommand(editor, 5, 11);
+        app.executeCommand(delete);
 
         System.out.println(editor.getText());
 
         app.undo();
-        System.out.println(editor.getText());
 
-        app.undo();
-        System.out.println(editor.getText());
-
-        app.undo();
         System.out.println(editor.getText());
     }
 }
